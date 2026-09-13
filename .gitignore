@@ -1,0 +1,12 @@
+node_modules/
+out/
+.env
+research/bytebytego/*.mp4
+research/bytebytego/frames/
+
+# Reference-video source material used to derive the style guide.
+# Someone else's footage and script, so it stays local.
+research/bytebytego/
+research/BRAND.md
+research/PLATFORM-POLICY.md
+content/reels.json

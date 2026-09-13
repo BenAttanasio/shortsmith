@@ -1,0 +1,206 @@
+[
+  {
+    "voice": "Kore",
+    "desc": "firm, even — the default explainer voice",
+    "dur": 5.490958333333333,
+    "wpm": 174.83286918646562,
+    "before": {
+      "lufs": -19.22,
+      "peak": -3.99,
+      "lra": 0.4
+    },
+    "after": {
+      "lufs": -13.85,
+      "peak": -0.76,
+      "lra": 0.8
+    },
+    "afterDur": 10.090625
+  },
+  {
+    "voice": "Charon",
+    "desc": "informative, lower register",
+    "dur": 5.450958333333333,
+    "wpm": 176.11582061258343,
+    "before": {
+      "lufs": -13.56,
+      "peak": -0.28,
+      "lra": 0.7
+    },
+    "after": {
+      "lufs": -13.61,
+      "peak": -0.92,
+      "lra": 0.7
+    },
+    "afterDur": 10.017166666666666
+  },
+  {
+    "voice": "Puck",
+    "desc": "upbeat",
+    "dur": 6.050958333333333,
+    "wpm": 158.65255503604803,
+    "before": {
+      "lufs": -19.06,
+      "peak": -2.27,
+      "lra": 1
+    },
+    "after": {
+      "lufs": -14.23,
+      "peak": -0.85,
+      "lra": 0.2
+    },
+    "afterDur": 11.119625
+  },
+  {
+    "voice": "Fenrir",
+    "desc": "excitable",
+    "dur": 5.770958333333334,
+    "wpm": 166.3501873605626,
+    "before": {
+      "lufs": -17.78,
+      "peak": -0.85,
+      "lra": 1.8
+    },
+    "after": {
+      "lufs": -14.33,
+      "peak": -0.9,
+      "lra": 1.2
+    },
+    "afterDur": 10.605166666666667
+  },
+  {
+    "voice": "Aoede",
+    "desc": "breezy",
+    "dur": 5.370958333333333,
+    "wpm": 178.7390518451859,
+    "before": {
+      "lufs": -18.2,
+      "peak": -2.71,
+      "lra": 2.4
+    },
+    "after": {
+      "lufs": -14.39,
+      "peak": -0.95,
+      "lra": 1.5
+    },
+    "afterDur": 9.870166666666666
+  },
+  {
+    "voice": "Enceladus",
+    "desc": "breathy, soft",
+    "dur": 5.530958333333333,
+    "wpm": 173.56847442049676,
+    "before": {
+      "lufs": -17.72,
+      "peak": -2.94,
+      "lra": 0.4
+    },
+    "after": {
+      "lufs": -13.84,
+      "peak": -0.92,
+      "lra": 0.6
+    },
+    "afterDur": 10.16425
+  },
+  {
+    "voice": "Iapetus",
+    "desc": "clear",
+    "dur": 5.010958333333333,
+    "wpm": 191.58012023648172,
+    "before": {
+      "lufs": -16.2,
+      "peak": -1.51,
+      "lra": 0.5
+    },
+    "after": {
+      "lufs": -13.81,
+      "peak": -0.94,
+      "lra": 0.5
+    },
+    "afterDur": 9.208708333333334
+  },
+  {
+    "voice": "Umbriel",
+    "desc": "easy-going",
+    "dur": 3.770958333333333,
+    "wpm": 254.57719633603307,
+    "before": {
+      "lufs": -19.29,
+      "peak": -3.97,
+      "lra": 1.2
+    },
+    "after": {
+      "lufs": -14.13,
+      "peak": -0.89,
+      "lra": 0.6
+    },
+    "afterDur": 6.930208333333334
+  },
+  {
+    "voice": "Algieba",
+    "desc": "smooth",
+    "dur": 5.810958333333334,
+    "wpm": 165.20510816488962,
+    "before": {
+      "lufs": -16.07,
+      "peak": -1.02,
+      "lra": 0.7
+    },
+    "after": {
+      "lufs": -14.11,
+      "peak": -0.79,
+      "lra": 0.5
+    },
+    "afterDur": 10.678708333333333
+  },
+  {
+    "voice": "Achernar",
+    "desc": "soft",
+    "dur": 5.730958333333334,
+    "wpm": 167.51125102695156,
+    "before": {
+      "lufs": -17.99,
+      "peak": -3.41,
+      "lra": 0.6
+    },
+    "after": {
+      "lufs": -14.21,
+      "peak": -0.88,
+      "lra": 0.4
+    },
+    "afterDur": 10.531708333333333
+  },
+  {
+    "voice": "Zephyr",
+    "desc": "bright",
+    "dur": 5.6109583333333335,
+    "wpm": 171.09376740455804,
+    "before": {
+      "lufs": -19.44,
+      "peak": -2.26,
+      "lra": 1.5
+    },
+    "after": {
+      "lufs": -14.34,
+      "peak": -0.9,
+      "lra": 0.6
+    },
+    "afterDur": 10.311166666666667
+  },
+  {
+    "voice": "Sadaltager",
+    "desc": "knowledgeable",
+    "dur": 5.370958333333333,
+    "wpm": 178.7390518451859,
+    "before": {
+      "lufs": -17.97,
+      "peak": -1.62,
+      "lra": 1
+    },
+    "after": {
+      "lufs": -14.54,
+      "peak": -0.96,
+      "lra": 0.4
+    },
+    "afterDur": 9.87025
+  }
+]

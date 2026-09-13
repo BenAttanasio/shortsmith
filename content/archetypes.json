@@ -1,0 +1,239 @@
+{
+  "_comment": [
+    "Per-archetype layout ceilings. Read by scripts/lint-reels.mjs and importable by TS",
+    "(resolveJsonModule is on), so there is exactly one source of truth for what fits.",
+    "",
+    "Numbers are in the 1080x1920 canvas space and are measured from the scene files, not",
+    "guessed.",
+    "",
+    "The camera scales the stage about transformOrigin 50% 55% (y=1056), so a nominal y",
+    "renders at 1056 + (y-1056)*zoom. `stageFloor` already accounts for this: 1330 renders",
+    "at ~1342 under the strongest push, leaving the caption zone clear.",
+    "",
+    "The verdict is NOT subject to any of that. Since Phase 3 it is bottom-anchored at",
+    "band.verdictBottom (1462) and rendered outside the camera layer by SceneFrame, so the",
+    "only thing that can go wrong is wrapping to a third line. That is why this file no",
+    "longer carries a per-scene verdictTop.",
+    "",
+    "Only scenes that content/reels.json can actually reach are listed. `fanout` exists in",
+    "src/scenes/DispatchFanout.tsx but Root.tsx has no branch for it yet, so adding it here",
+    "would let the linter pass a reel that renders as the wrong scene."
+  ],
+
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "captionTop": 1500,
+    "cameraOriginY": 1056,
+    "cameraZoom": 1.045
+  },
+
+  "band": {
+    "diagramTop": 560,
+    "stageFloor": 1330,
+    "verdictBottom": 1462
+  },
+
+  "type": {
+    "hook": 76,
+    "heading": 56,
+    "body": 46,
+    "label": 38,
+    "code": 34,
+    "lineHeight": 1.25
+  },
+
+  "hook": {
+    "width": 920,
+    "minLines": 2,
+    "maxLines": 3
+  },
+
+  "verdict": {
+    "width": 900,
+    "maxLines": 2
+  },
+
+  "_narrationNote": [
+    "bandHi was 68, calibrated on the original corpus. That corpus was written in a clipped",
+    "asyndetic style ('It files the ticket, updates the record, sends the email') which was",
+    "banned in STYLE-GUIDE 7c for sounding like copywriting rather than explanation.",
+    "Writing the same content with real connectives and named referents costs 10-15% more",
+    "words, so the band was raised to 82 rather than squeezing the prose back into the",
+    "style the band was measuring. hardMax and maxSeconds are unchanged: those are real",
+    "ceilings (Shorts length), where bandHi is only a house-style guide."
+  ],
+  "narration": {
+    "hardMin": 45,
+    "hardMax": 150,
+    "bandLo": 48,
+    "bandHi": 82,
+    "maxSeconds": 58
+  },
+
+  "scenes": {
+    "contrast": {
+      "component": "ContrastPair",
+      "required": ["left", "right"],
+      "counts": {},
+      "stageFloor": 1240,
+      "mirror": false,
+      "defaultCamera": "push",
+      "text": {
+        "left.label": { "max": 780, "size": 56 },
+        "left.sub": { "max": 780, "size": 38 },
+        "right.label": { "max": 780, "size": 56 },
+        "right.sub": { "max": 780, "size": 38 }
+      },
+      "accentAt": ["left.accent", "right.accent"]
+    },
+
+    "chain": {
+      "component": "ChainFlow",
+      "required": ["steps"],
+      "counts": { "steps": [2, 4] },
+      "stageFloor": 1326,
+      "mirror": false,
+      "defaultCamera": "drift-up",
+      "text": { "steps[]": { "max": 696, "size": 46 } },
+      "accentAt": ["accent"],
+      "note": "Geometry adapts to step count — 2/3/4 steps get their own box height and gap so the last one always lands on stageFloor."
+    },
+
+    "fill": {
+      "component": "StackFill",
+      "required": ["items", "regionLabel"],
+      "counts": { "items": [3, 5] },
+      "stageFloor": 1330,
+      "mirror": true,
+      "defaultCamera": "push",
+      "text": { "items[]": { "max": 630, "size": 46 } },
+      "accentAt": ["accent"],
+      "note": "Row pitch adapts so the box always looks filled: 3 tall rows or 5 short ones."
+    },
+
+    "fanout": {
+      "component": "DispatchFanout",
+      "required": ["source", "workers"],
+      "counts": { "workers": [2, 4] },
+      "stageFloor": 1305,
+      "mirror": false,
+      "defaultCamera": "push",
+      "text": {
+        "workers[].label": { "max": 190, "size": 32 },
+        "source.label": { "max": 320, "size": 38 }
+      },
+      "accentAt": ["accent", "sourceAccent"],
+      "note": "Worker box and spacing adapt to count: 340/306/248px pitch for 2/3/4. At four, outer edges land at x63 and x1017."
+    },
+
+    "code": {
+      "component": "CodeAnnotate",
+      "required": ["code", "focus", "callout"],
+      "counts": { "code": [3, 9] },
+      "indexInto": { "focus": "code" },
+      "stageFloor": 1302,
+      "mirror": true,
+      "defaultCamera": "hold",
+      "text": { "callout": { "max": 380, "size": 32 } },
+      "monoWidth": { "code[]": 41 },
+      "accentAt": ["accent"],
+      "note": "Mono is a flat 0.6em advance, so code lines are checked by exact character count against the 920px card, not estimated."
+    },
+
+    "layers": {
+      "component": "LayerStack",
+      "required": ["layers", "focus", "axisLabel"],
+      "counts": { "layers": [3, 5] },
+      "indexInto": { "focus": "layers" },
+      "stageFloor": 1330,
+      "mirror": true,
+      "defaultCamera": "settle",
+      "text": {
+        "layers[].label": { "max": 700, "size": 46 },
+        "layers[].note": { "max": 700, "size": 32 }
+      },
+      "accentAt": ["accent"],
+      "note": "Tier height adapts so the column bottom always lands on stageFloor. `note` is only rendered at 4 tiers or fewer, where the row is tall enough."
+    },
+
+    "loop": {
+      "component": "CycleLoop",
+      "required": ["nodes"],
+      "counts": { "nodes": [3, 4] },
+      "stageFloor": 1288,
+      "mirror": false,
+      "defaultCamera": "frame-part",
+      "text": {
+        "nodes[].label": { "max": 250, "size": 38 },
+        "centre": { "max": 280, "size": 38 },
+        "edges[]": { "max": 230, "size": 32 }
+      },
+      "accentAt": ["accent"],
+      "note": "The closing edge (last node back to the first) draws bold and late, and the camera frames it. That edge is the clip. Keep edge labels to ~2 words — they sit in the gaps between nodes, and those gaps are small on a 4-node ring."
+    },
+
+    "gather": {
+      "component": "GatherMerge",
+      "required": ["sources", "collector", "result"],
+      "counts": { "sources": [2, 4] },
+      "stageFloor": 1325,
+      "mirror": false,
+      "defaultCamera": "drift-up",
+      "text": {
+        "sources[].label": { "max": 186, "size": 32 },
+        "collector.label": { "max": 440, "size": 46 },
+        "collector.note": { "max": 440, "size": 32 },
+        "result.label": { "max": 320, "size": 46 },
+        "mergeLabel": { "max": 300, "size": 32 },
+        "edgeLabel": { "max": 500, "size": 38 }
+      },
+      "accentAt": ["accent", "resultAccent"],
+      "note": "Three tiers, not a mirrored fanout — the argument lives in the middle collector. One brace carries the group label rather than N arrows repeating it."
+    },
+
+    "nest": {
+      "component": "NestedScope",
+      "required": ["rings", "core"],
+      "counts": { "rings": [2, 3] },
+      "stageFloor": 1295,
+      "mirror": false,
+      "defaultCamera": "push",
+      "text": {
+        "rings[].label": { "max": 560, "size": 38 },
+        "core.label": { "max": 380, "size": 46 }
+      },
+      "accentAt": ["accent"],
+      "enum": { "direction": ["in", "out"] },
+      "note": "`direction` inverts the argument and the camera from one field: 'in' narrows and dims, 'out' widens and holds. Two clips using it opposite ways do not read as the same video."
+    },
+
+    "matrix": {
+      "component": "QuadrantMatrix",
+      "required": ["columns", "rows", "cells", "pick"],
+      "counts": { "cells": [4, 4], "columns": [2, 2], "rows": [2, 2] },
+      "indexInto": { "pick": "cells" },
+      "stageFloor": 1300,
+      "mirror": true,
+      "defaultCamera": "frame-part",
+      "text": {
+        "cells[]": { "max": 340, "size": 38 },
+        "columns[]": { "max": 380, "size": 32 },
+        "rows[]": { "max": 250, "size": 32 },
+        "pickLabel": { "max": 260, "size": 32 }
+      },
+      "accentAt": ["accent"],
+      "note": "The most reading of any archetype. Budget it — see W-MATRIX-BUDGET. Cells want 3 words, not a sentence."
+    }
+  },
+
+  "accents": ["mint", "cyan", "violet", "amber", "rose"],
+
+  "variant": {
+    "camera": ["push", "settle", "drift-up", "drift-left", "hold", "frame-part"],
+    "hook": ["center", "left", "kicker"],
+    "entrance": ["up", "down", "left", "right"],
+    "pace": ["even", "front", "back"]
+  }
+}
